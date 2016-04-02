@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+<div class="jumbotron">
+  <div class="container">
+    <h1>Categories</h1>
+    {% block head_title %}Viewing category {{ category.title }}{% endblock %}
+    {% block title %}{{ category.title }}{% endblock %}
+  </div>
+</div>
+
+<div class="container">
+{% block content %}
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no posts.</p>
+    {% endif %}
+{% endblock %}
+
+  <footer>
+    <p>&copy; 2016 Element Blue</p>
+  </footer>
+</div>
